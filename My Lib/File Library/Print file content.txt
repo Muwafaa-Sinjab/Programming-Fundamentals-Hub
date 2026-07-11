@@ -1,0 +1,19 @@
+void printFileContent(string FileName)
+{
+    fstream Myfile;
+
+    Myfile.open(FileName, ios::in);
+
+    if(Myfile.is_open())
+    {
+        string line;
+        while(getline(Myfile, line))
+        {
+            cout << line << endl;
+        }
+
+        Myfile.close();
+    }
+}
+
+printFileContent("Test");

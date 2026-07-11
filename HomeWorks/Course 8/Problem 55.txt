@@ -1,0 +1,282 @@
+#include <iostream>
+#include <ctime>
+#include <string>
+
+using namespace std;
+
+struct sDate
+{
+    short year;
+    short month;
+    short day;
+};
+
+short ReadYear(); 
+short ReadMonth();
+short ReadDay();
+short ReadVacationDays();
+sDate readAllDate();
+sDate GetSystemDate();
+
+bool IsleapYear(short year);
+short NumberOfDaysInMonth(short year, short month);
+bool IsLastDayInMonth(sDate date);
+bool IsLastMonthInYear(short month);
+
+short DayOfWeekOrder(short year, short month, short day);
+short DayOfWeekOrder(sDate date);
+string DayShortName(short DayOfWeekOrder);
+
+void GetVacationStartFrom(sDate date1);
+void GetVacationEnd(sDate date2);
+
+bool IsEndOfWeek(sDate date); 
+bool IsBusinessDay(sDate date);
+bool IsDate1BeforeDate2(sDate date1, sDate date2);
+
+sDate IncreaseDateByOneDay(sDate date);
+short GetDifferenceInDays(sDate date1, sDate date2, bool IncludeEndDay = false);
+
+short DaysUntilEndOfTheWeek(sDate date);
+short DaysUntilEndOfTheMonth(sDate date);
+short DaysUntilEndOfTheYear(sDate date);
+
+sDate CalculateVacationReturnDates(sDate dateFrom, sDate dateTo, short vacationDays);
+
+int main()
+{
+    sDate dateFrom, dateTo;
+    short vacationDays = 0;
+
+    cout << "Vacation Start:" << endl;
+    dateFrom = readAllDate();
+
+    vacationDays = ReadVacationDays();
+    dateTo = CalculateVacationReturnDates(dateFrom, dateTo, vacationDays);
+
+    GetVacationEnd(dateTo);
+    return 0;
+}
+
+short ReadYear()
+{
+    short year = 0;
+    cout << "Please Enter a year: ";
+    cin >> year;
+    return year;
+}
+
+short ReadMonth()
+{
+    short month = 0;
+    cout << "Please Enter a month: ";
+    cin >> month;
+    return month;
+}
+
+short ReadDay()
+{
+    short day = 0;
+    cout << "Please enter a Day? "; 
+    cin >> day;
+    return day;
+}
+
+short ReadVacationDays()
+{
+    short vacationDays = 0;
+    cout << "Please enter vacation days? "; 
+    cin >> vacationDays;
+    return vacationDays;
+}
+
+sDate readAllDate()
+{
+    sDate date;
+    date.day   = ReadDay();
+    date.month = ReadMonth();
+    date.year  = ReadYear();
+    cout << "\n";
+    return date;
+}
+
+sDate GetSystemDate()
+{
+    sDate date;
+    time_t t = time(0);
+    tm* now = localtime(&t);
+
+    date.year = now->tm_year + 1900;
+    date.month = now->tm_mon + 1;
+    date.day = now->tm_mday;
+
+    return date;
+}
+
+bool IsleapYear(short year)
+{
+    return (year % 4 == 0 && year % 100 != 0 ) || (year % 400 == 0);
+}
+
+short NumberOfDaysInMonth(short year, short month)
+{
+    if (month < 1 || month > 12) return 0;
+
+    short arrNumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    return (month == 2) ? (IsleapYear(year) ? 29 : 28) : arrNumberOfDays[month - 1];
+}
+
+bool IsLastDayInMonth(sDate date)
+{
+    return (date.day == NumberOfDaysInMonth(date.year, date.month));
+}
+
+bool IsLastMonthInYear(short month)
+{
+    return (month == 12);
+}
+
+short DayOfWeekOrder(short year, short month, short day)
+{
+    short a = (14 - month) / 12;
+    short y = year - a;
+    short m = month + (12 * a) - 2;
+    return (day + y + (y / 4) - (y / 100) + (y / 400) + (31 * m / 12)) % 7;
+}
+
+short DayOfWeekOrder(sDate date)
+{
+    return DayOfWeekOrder(date.year, date.month, date.day);
+}
+
+string DayShortName(short DayOfWeekOrder)
+{   
+    string arrDayNames[] = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat" };
+    return arrDayNames[DayOfWeekOrder];
+}
+
+void GetVacationStartFrom(sDate date1)
+{
+    short dayOfWeekOrder1 = DayOfWeekOrder(date1);
+    string dayShortName1 = DayShortName(dayOfWeekOrder1);
+
+    cout << dayShortName1 << ", " << date1.day << "/" << date1.month << "/" << date1.year << endl;
+}
+
+void GetVacationEnd(sDate date2)
+{
+    GetVacationStartFrom(date2);
+}
+
+bool IsEndOfWeek(sDate date)
+{
+    short dayCode = DayOfWeekOrder(date);
+    return (dayCode == 0 || dayCode == 6);
+}
+
+bool IsBusinessDay(sDate date)
+{
+    return !IsEndOfWeek(date);
+}
+
+bool IsDate1BeforeDate2(sDate date1, sDate date2)
+{
+    return (date1.year < date2.year) ? true : 
+           ((date1.year == date2.year) ? (date1.month < date2.month ? true : 
+           (date1.month == date2.month ? date1.day < date2.day : false)) : false);
+}
+
+sDate IncreaseDateByOneDay(sDate date)
+{
+    if(IsLastDayInMonth(date))
+    {
+        if(IsLastMonthInYear(date.month))
+        {
+            date.month = 1;
+            date.day = 1;
+            date.year++;
+        }
+        else
+        {
+            date.day = 1;
+            date.month++;
+        }
+    }
+    else
+    {
+        date.day++;
+    }
+    return date;
+}
+
+short GetDifferenceInDays(sDate date1, sDate date2, bool IncludeEndDay)
+{
+    int Days = 0;
+    while (IsDate1BeforeDate2(date1, date2))
+    {   
+        Days++;
+        date1 = IncreaseDateByOneDay(date1);
+    }
+    return IncludeEndDay ? ++Days : Days;
+}
+
+short DaysUntilEndOfTheWeek(sDate date)
+{
+    return 6 - DayOfWeekOrder(date);
+}
+
+short DaysUntilEndOfTheMonth(sDate date)
+{
+    return (NumberOfDaysInMonth(date.year, date.month) - date.day);
+}
+
+short DaysUntilEndOfTheYear(sDate date)
+{
+    sDate EndOfYearDate;
+    EndOfYearDate.day   = 31;
+    EndOfYearDate.month = 12;
+    EndOfYearDate.year  = date.year;
+
+    return GetDifferenceInDays(date, EndOfYearDate, true);
+}
+
+short CalculateVacationDays(sDate dateFrom, sDate dateTo)
+{
+    short count = 0;
+    
+    while(IsDate1BeforeDate2(dateFrom, dateTo))
+    {
+        if(IsBusinessDay(dateFrom))
+        {
+            count++;
+        }
+        dateFrom = IncreaseDateByOneDay(dateFrom);
+    }
+    return count;
+}
+
+sDate CalculateVacationReturnDates(sDate dateFrom, sDate dateTo, short vacationDays)
+{
+    dateTo = dateFrom;
+
+    while (vacationDays > 0)
+    {
+        if(IsBusinessDay(dateTo))
+        {
+            vacationDays--;
+
+            if (vacationDays == 0)
+            {
+                break; 
+            }
+        }
+            dateTo = IncreaseDateByOneDay(dateTo);
+    }
+
+    while (IsEndOfWeek(dateTo))
+    {
+        dateTo = IncreaseDateByOneDay(dateTo);
+    }
+    
+    return dateTo;
+}

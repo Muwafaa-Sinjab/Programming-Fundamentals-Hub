@@ -1,0 +1,13 @@
+int CountOddNumbers(int Arr[100], int ArrLength)
+{
+    int NumberOfOdd = 0;
+
+    for (int i = 0; i < ArrLength; i++)
+    {
+        if(Arr[i] % 2 != 0)
+        {
+            NumberOfOdd++;
+        }
+    }
+    return NumberOfOdd;
+}

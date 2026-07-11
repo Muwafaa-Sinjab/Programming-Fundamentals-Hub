@@ -1,0 +1,78 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int RandomNumber(int From, int To);
+void Fill2DArrayWithRandomNumbers(int Matrix1[3][3], short Rows, short Cols);
+int GetElement(int Matrix1[3][3], short RowIndex, short ColIndex);
+void PrintMiddleRow(int Matrix1[3][3], short Rows, short Cols);
+void PrintMiddleCol(int Matrix1[3][3], short Rows, short Cols);
+void Print2DArray(int Matrix1[3][3], short Rows, short Cols);
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int Matrix1[3][3];
+
+    Fill2DArrayWithRandomNumbers(Matrix1, 3, 3);
+
+    cout << "\nMatrix:\n";
+    Print2DArray(Matrix1, 3, 3);
+
+    cout << "\nMiddle Row of Matrix:\n";
+    PrintMiddleRow(Matrix1, 3, 3);
+
+    cout << "\nMiddle Cols of Matrix:\n";
+    PrintMiddleCol(Matrix1, 3, 3);
+
+    return 0;
+}
+
+void Fill2DArrayWithRandomNumbers(int Matrix1[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+        for (int j = 0; j < Cols; j++)
+            Matrix1[i][j] = RandomNumber(1, 10);
+}
+
+void PrintMiddleRow(int Matrix1[3][3], short Rows, short Cols)
+{
+    short middleRows = Rows / 2;
+    for (int i = 0; i < Cols; i++)
+        cout << setw(2) << setfill('0')
+             << GetElement(Matrix1, middleRows, i) << "  ";
+    cout << endl;
+}
+
+void PrintMiddleCol(int Matrix1[3][3], short Rows, short Cols)
+{
+    short middleCols = Cols / 2;
+    for (int j = 0; j < Rows; j++)
+        cout << setw(2) << setfill('0')
+             << GetElement(Matrix1, j, middleCols) << "  ";
+    cout << endl;
+}
+
+void Print2DArray(int Matrix1[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+            cout << setw(2) << setfill('0') << Matrix1[i][j] << "  ";
+        cout << endl;
+    }
+}
+
+int GetElement(int Matrix1[3][3], short RowIndex, short ColIndex)
+{
+    return Matrix1[RowIndex][ColIndex];
+}
+
+int RandomNumber(int From, int To)
+{
+    return rand() % (To - From + 1) + From;
+}

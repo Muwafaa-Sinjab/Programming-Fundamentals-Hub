@@ -1,0 +1,52 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int RandomNumber(int From, int To)
+{
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+void Fill2DArrayWithOrderedNumbers(int Arr[3][3], short Rows, short Colm)
+{
+    short Counter = 0;
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Colm; j++)
+        {
+            Counter++;
+            Arr[i][j] = Counter;
+            
+        }
+    }
+}
+
+void Print2DArray(int Arr[3][3], short Rows, short Colm)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Colm; j++)
+        {
+            cout << setw(3) << Arr[i][j] << "   ";
+        }
+        cout << endl;
+    }
+}
+
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int Arr[3][3];
+
+    Fill2DArrayWithOrderedNumbers(Arr, 3, 3);
+
+    cout << "The following is an orderd 3x3 Matrix:" << endl;
+    Print2DArray(Arr, 3, 3);
+
+    return 0;
+}

@@ -1,0 +1,5 @@
+void AddArrayElemente(int Number, int Arr[100], int& ArrLength)
+{
+    ArrLength++;
+    Arr[ArrLength - 1] = Number;
+}

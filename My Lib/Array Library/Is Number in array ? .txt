@@ -1,0 +1,4 @@
+bool IsNumberInArray(int Number, int arr[100], int arrLength)
+{
+    return FindNumberPositionInArray(Number, arr, arrLength) != -1;
+}

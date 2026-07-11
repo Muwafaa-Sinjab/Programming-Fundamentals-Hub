@@ -1,0 +1,51 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+void Print2DArray(int Matrix1[3][3], int Rows, int Cols);
+bool IsIdentityMatrix(int Matrix1[3][3], int Rows, int Cols);
+
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int Matrix1[3][3] = {{1,0,0},{0,1,0},{0,0,1}};
+    int Matrix2[3][3] = {{1,4,0},{1,1,0},{5,6,1}};
+
+    cout << "\nMatrix:\n";
+    Print2DArray(Matrix2, 3,3);
+
+    if (IsIdentityMatrix(Matrix2, 3, 3))
+        cout << "\nYes, the matrix is identity" << endl;
+    else
+        cout << "\nNo, the matrix is NOT identity" << endl;
+
+    return 0;
+}
+
+void Print2DArray(int Matrix1[3][3], int Rows, int Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+            cout << Matrix1[i][j] << "  ";
+        cout << endl;
+    }
+}
+
+bool IsIdentityMatrix(int Matrix1[3][3], int Rows, int Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            if (i == j && Matrix1[i][j] != 1) return false;
+            if (i != j && Matrix1[i][j] != 0) return false;
+        }
+    }
+    return true;
+}

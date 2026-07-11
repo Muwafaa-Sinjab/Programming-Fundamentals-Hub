@@ -1,0 +1,48 @@
+/* Q: Write a program to do the following:
+     Read three strings from the user
+
+    Print the length of the first string.
+
+    Print the characters at positions 0, 2, 4،  7 in the first string.
+
+    Concatenate the second and third strings and print the result.
+
+    Convert the second and third strings to integers, calculate their sum, and print it.
+*/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string St1, St2, St3;
+    
+    cout << "plese Ender a String 1" << endl;
+    getline (cin, St1);
+    
+    cout << "\n";
+    
+    cout << "plese Ender a String 2" << endl;
+    cin >> St2;
+    
+    cout << "\n";
+    
+    cout << "plese Ender a String 3" << endl;
+    cin >> St3;
+    
+    cout << "\n";
+    
+    cout << "*************" << endl;
+    
+    cout << "The length of String 1 is: " << St1.length() << endl;
+    cout << "The characters at 0, 2, 4, 7 are: " << St1[0] << " " << St1[2] << " " << St1[4] << " " << St1[7] << endl;
+    cout << "The concatenating of String 2 and String 3 is: " << St2 + St3 << endl;
+    
+    int sum = stoi(St2) + stoi (St3);
+    cout << "The Sum of String 2 and String 3 is: " << sum << endl;
+    
+    
+    return 0;
+}
+  

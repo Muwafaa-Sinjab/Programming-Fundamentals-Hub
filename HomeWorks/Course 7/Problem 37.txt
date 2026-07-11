@@ -1,0 +1,60 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+string ReadString(string message);
+vector<string> SplitString(string text, string delimiter);
+
+int main()
+{
+    string inputText = ReadString("Please Enter a String: ");
+
+    vector<string> words = SplitString(inputText, " ");
+
+    cout << "Tokens = " << words.size() << endl;
+
+    for (string& word : words)
+    {
+        cout << word << endl;
+    }
+
+    return 0;
+}
+
+string ReadString(string message)
+{
+    string inputText;
+
+    cout << message;
+    getline(cin, inputText);
+
+    return inputText;
+}
+
+vector<string> SplitString(string text, string delimiter)
+{
+    short delimiterPosition = 0;
+
+    string currentWord;
+    vector<string> words;
+
+    while ((delimiterPosition = text.find(delimiter)) != string::npos)
+    {
+        currentWord = text.substr(0, delimiterPosition);
+
+        if (currentWord != "")
+        {
+            words.push_back(currentWord);
+        }
+
+        text.erase(0, delimiterPosition + delimiter.length());
+    }
+
+    if (text != "")
+    {
+        words.push_back(text);
+    }
+
+    return words;
+}

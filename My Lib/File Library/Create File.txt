@@ -1,0 +1,22 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{   
+    fstream MyFile;
+
+    MyFile.open("MyFile.txt", ios::out); //write mode (delete what was in the file already and create the new text)
+
+    if(MyFile.is_open())
+    {
+        MyFile << "Hi, This is the first line" << endl;
+        MyFile << "Hi, This is the Second line" << endl;
+        MyFile << "Hi, This is the Third line" << endl;
+
+        MyFile.close();
+    }
+
+    return 0;
+}

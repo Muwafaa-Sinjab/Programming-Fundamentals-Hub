@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+string JoinString(vector<string> inputText, string delimiter);
+string JoinString(string ArrinputText[], short size, string delimiter);
+
+int main()
+{
+    vector<string> inputText = {"Ali", "Ahmed", "Muwafaa", "Taj"}; 
+    string ArrinputText[] = {"Ali", "Ahmed", "Muwafaa", "Taj"};
+
+    cout << "string after join in vector = " << JoinString(inputText, "!!!!");
+    cout << "\nstring after join in array = " << JoinString(ArrinputText, 4,  "!!!!");
+    return 0;
+}
+
+string JoinString(vector<string> inputText, string delimiter)
+{
+    string text = "";
+
+    for(string& word : inputText)
+    {
+        text = text + word + delimiter;
+    }
+
+    if(!text.empty())
+    {
+        text = text.substr(0, text.length() - delimiter.length());
+    }
+    
+    return text;
+}
+
+string JoinString(string ArrinputText[], short size, string delimiter)
+{
+    string text = "";
+
+    for(int i = 0; i < size; i++)
+    {
+        text = text + ArrinputText[i] + delimiter;
+    }
+
+    if(!text.empty())
+    {
+        text = text.substr(0, text.length() - delimiter.length());
+    }
+    
+    return text;
+}

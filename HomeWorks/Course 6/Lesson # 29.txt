@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void ReadNumber(vector <int> &vNumber)
+{   
+    char AddMore = 'Y';
+    int Number = 0;
+
+    do
+    {
+
+        cout << "Pls Add Number: "; 
+        cin >> Number;
+        vNumber.push_back(Number);
+
+        cout << "Do you want Add more? Y - N: ";
+        cin >> AddMore;
+
+    }while(AddMore == 'y' || AddMore == 'Y');
+}
+
+void PrintVectorNumber(vector <int> &vNumber)
+{
+    for(int &Number : vNumber)
+    {
+        cout << Number << " ";
+    }
+}
+int main() 
+{   
+    vector <int> vNumber;
+
+    ReadNumber(vNumber);
+    PrintNumber(vNumber);
+    return 0;
+}

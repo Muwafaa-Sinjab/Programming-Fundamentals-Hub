@@ -1,0 +1,151 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+enum enGameElements { Stone = 1, Paper = 2, Scissors = 3 };
+enum enResults { Draw = 1, PlayerWin = 2, ComputerWin = 3 };
+
+int RandomNumber(int From, int To)
+{
+    return rand() % (To - From + 1) + From;
+}
+
+struct GameInfo
+{
+    int GameRound = 0;
+    int PlayerResults = 0;
+    int ComputerResults = 0;
+    int DrawTimes = 0;
+    enResults FinalWinner;
+};
+
+GameInfo CoutOfRound()
+{
+    GameInfo info;
+
+    do
+    {
+        cout << "How Many Rounds? From 1 to 10.. ";
+        cin >> info.GameRound;
+
+        if (info.GameRound < 1 || info.GameRound > 10)
+            cout << "Invalid input! Please enter a number between 1 and 10.\n";
+
+    } while (info.GameRound > 10 || info.GameRound < 1);
+
+    return info;
+}
+
+enGameElements PlayerChoice()
+{
+    int choiceInput;
+    cout << "Your Choice: [1]Stone, [2]Paper, [3]Scissors: ";
+    cin >> choiceInput;
+    return (enGameElements)choiceInput;
+}
+
+enGameElements ComputerChoice()
+{
+    return (enGameElements)RandomNumber(1, 3);
+}
+
+enResults GameRule(enGameElements ComputerChoice, enGameElements PlayerChoice)
+{
+    if (ComputerChoice == PlayerChoice)
+        return enResults::Draw;
+
+    if ((PlayerChoice == enGameElements::Stone && ComputerChoice == enGameElements::Scissors) ||
+        (PlayerChoice == enGameElements::Scissors && ComputerChoice == enGameElements::Paper) ||
+        (PlayerChoice == enGameElements::Paper && ComputerChoice == enGameElements::Stone))
+        return enResults::PlayerWin;
+    else
+        return enResults::ComputerWin;
+}
+
+string GetElementName(enGameElements element)
+{
+    switch (element)
+    {
+    case Stone: return "Stone";
+    case Paper: return "Paper";
+    case Scissors: return "Scissors";
+    default: return "Unknown";
+    }
+}
+
+string GetResultName(enResults result)
+{
+    switch (result)
+    {
+    case Draw: return "Draw";
+    case PlayerWin: return "Player Win";
+    case ComputerWin: return "Computer Win";
+    default: return "Unknown";
+    }
+}
+
+void FinialResult(GameInfo Data)
+{
+   
+    cout << "\t\t___________________________________________________________" << endl;
+    cout << "\n\t\t\t\t+++ G a m e  O v e r +++" << endl;
+    cout << "\t\t___________________________________________________________" << endl;
+    cout << "\t\t_____________________[ Game Results ]______________________" << endl;
+    
+    cout << "\t\t\tGame Rounds         : " << Data.GameRound << endl;
+    cout << "\t\t\tPlayer 1 won times  : " << Data.PlayerResults << endl;
+    cout << "\t\t\tComputer won times  : " << Data.ComputerResults << endl;
+    cout << "\t\t\tDraw times          : " << Data.DrawTimes << endl;
+    cout << "\t\t\tFinal Winner        : " << GetResultName(Data.FinalWinner) << endl;
+    cout << "\t\t___________________________________________________________" << endl;
+     cout << "\n\n";
+
+}
+
+void StartGame()
+{
+    GameInfo Data = CoutOfRound();
+
+    cout << "\n";
+    for (int i = 1; i <= Data.GameRound; i++)
+    {
+        cout << "Round [" << i << "] begins:" << endl;
+
+        enGameElements Player = PlayerChoice();
+        enGameElements Computer = ComputerChoice();
+
+        enResults result = GameRule(Computer, Player);
+
+        if (result == Draw)
+            Data.DrawTimes++;
+        else if (result == PlayerWin)
+            Data.PlayerResults++;
+        else
+            Data.ComputerResults++;
+
+        cout << "\n";
+        cout << "______________Round " << i << "______________" << endl;
+        cout << "Player Choice   : " << GetElementName(Player) << endl;
+        cout << "Computer Choice : " << GetElementName(Computer) << endl;
+        cout << "Round Winner    : " << GetResultName(result) << endl;
+        cout << "___________________________________" << endl;
+        cout << "\n";
+    }
+
+    if (Data.PlayerResults > Data.ComputerResults)
+        Data.FinalWinner = PlayerWin;
+    else if (Data.ComputerResults > Data.PlayerResults)
+        Data.FinalWinner = ComputerWin;
+    else
+        Data.FinalWinner = Draw;
+
+    FinialResult(Data);
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    StartGame();
+    return 0;
+}

@@ -1,0 +1,67 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int RandomNumber(int From, int To);
+void Fill2DArrayWithRandomNumbers(int Matrix1[3][3], short Rows, short Cols);
+void Print2DArray(int Matrix1[3][3], int Rows, int Cols);
+bool IsNumberInMatrix(int Matrix1[3][3], int Rows, int Cols, int NumberToCheck);
+
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int Matrix1[3][3];
+    
+    Fill2DArrayWithRandomNumbers(Matrix1, 3, 3);
+    cout << "\nMatrix:\n";
+    Print2DArray(Matrix1, 3,3);
+
+    int NumberToCheck;
+    cout << "\nPlease enter the number to look for in matrix: ";
+    cin >> NumberToCheck;
+
+    if (IsNumberInMatrix(Matrix1, 3, 3, NumberToCheck))
+        cout << "YES: It's in Matrix" << endl;
+    else
+        cout << "NO: It's not in Matrix" << endl;
+    return 0;
+}
+
+void Fill2DArrayWithRandomNumbers(int Matrix1[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+        for (int j = 0; j < Cols; j++)
+            Matrix1[i][j] = RandomNumber(1, 10);
+}
+
+void Print2DArray(int Matrix1[3][3], int Rows, int Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+            cout << Matrix1[i][j] << "  ";
+        cout << endl;
+    }
+}
+
+
+bool IsNumberInMatrix(int Matrix1[3][3], int Rows, int Cols, int NumberToCheck)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            if (NumberToCheck == Matrix1[i][j])
+                return true;
+        }
+    }
+    return false;
+}
+
+int RandomNumber(int From, int To)
+{
+    return rand() % (To - From + 1) + From;
+}

@@ -1,0 +1,66 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int RandomNumber(int From, int To)
+{
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+void Fill2DArrayWithOrderedNumbers(int Arr[3][3], short Rows, short Colm)
+{
+    short Counter = 0;
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Colm; j++)
+        {
+            Counter++;
+            Arr[i][j] = Counter;
+            
+        }
+    }
+}
+
+void TransposeMatrix(int Arr[3][3], int ArrTranspose[3][3], short Rows, short Colm)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Colm; j++)
+        {
+           ArrTranspose[i][j] = Arr[j][i];
+            
+        }
+    }
+}
+
+void Print2DArray(int ArrTranspose[3][3], short Rows, short Colm)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Colm; j++)
+        {
+            cout << setw(3) << ArrTranspose[i][j] << "   ";
+        }
+        cout << endl;
+    }
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int Arr[3][3], ArrTranspose[3][3];
+
+    Fill2DArrayWithOrderedNumbers(Arr, 3, 3);
+
+    cout << "\nThe following is an orderd 3x3 Matrix:" << endl;
+    Print2DArray(Arr, 3, 3);
+
+    cout << "\nThe following is an Transpose 3x3 Matrix:" << endl;
+    TransposeMatrix(Arr, ArrTranspose, 3, 3);
+    Print2DArray(ArrTranspose, 3, 3);
+    return 0;
+}

@@ -1,0 +1,61 @@
+My Soulotion
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string MyName = "Muwafaa Sinjab";
+    int MyAge = 21;
+    string MyCity ="Ankara";
+    string MyCountry = "Turkye";
+    int MonthSalary = 1000;
+    int YearSalary = MonthSalary * 12;
+    char Gender = 'M';
+    int WifesNumber = 0;
+    
+    
+    cout << "**************************************\n";
+    cout << "Name: " << MyName << endl;
+    cout << "Age: " << MyAge << endl;
+    cout << "City: " << MyCity << endl;
+    cout << "Country: " << MyCountry << endl;
+    cout << "Monthly Salary: " << MonthSalary << endl;
+    cout << "Yearly Salary: " << YearSalary << endl;
+    cout << "Gender: " << Gender << endl;
+    cout << "Married: " << WifesNumber << endl;
+    cout << "**************************************\n";
+    return 0;
+}
+// This HomeWork to print data About Someone or me dosen't Matter
+
+---------------------------------------------------------------------------------	
+Doctor Soulotion:
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string MyName = "Muwafaa Sinjab";
+    int MyAge = 21;
+    string MyCity ="Ankara";
+    string MyCountry = "Turkye";
+    float MonthSalary = 1000; // My was ( int MonthSalary ), Doc write ( float MonthSalary ) 
+   // int YearSalary = MonthSalary * 12; ----- This Variable doesn't exsist
+    char Gender = 'M';
+    int WifesNumber = 0;
+    
+    
+    cout << "**************************************\n";
+    cout << "Name: " << MyName << endl;
+    cout << "Age: " << MyAge << endl;
+    cout << "City: " << MyCity << endl;
+    cout << "Country: " << MyCountry << endl;
+    cout << "Monthly Salary: " << MonthSalary << endl;
+    cout << "Yearly Salary: " << YearSalary << endl;  //This Will be ( cout << "Yearly Salary: " << MonthSalary * 12 << endl; )
+    cout << "Gender: " << Gender << endl;
+    cout << "Married: " << WifesNumber << endl;
+    cout << "**************************************\n";
+    return 0;
+}

@@ -1,0 +1,8 @@
+// declare iterator
+    // vector<int>::iterator NAME;
+
+    // use iterator with for loop
+    for (iter = num.begin(); iter != num.end();iter++)
+    {
+        cout << *iter << " ";
+    }

@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+string ReadString();
+string CapitalizeFirstLetterOfEachWord(string sentence);
+
+int main()
+{
+    string s1 = ReadString();
+    cout << "String after Conversion:\n";
+    s1 = CapitalizeFirstLetterOfEachWord(s1);
+    cout << s1 << endl;
+    return 0;
+}
+
+string ReadString()
+{
+    string s;
+    cout << "Enter Your String: ";
+    getline(cin, s);
+    return s;
+}
+
+string CapitalizeFirstLetterOfEachWord(string sentence)
+{
+    bool isFirstLetter = true;
+
+    for (size_t i = 0; i < sentence.length(); i++)
+    {
+        if (sentence[i] != ' ' && isFirstLetter)
+        {
+            sentence[i] = static_cast<char>(
+                toupper(static_cast<unsigned char>(sentence[i]))
+            );
+            isFirstLetter = false;
+        }
+        else if (sentence[i] == ' ')
+        {
+            isFirstLetter = true;
+        }
+    }
+
+    return sentence;
+}

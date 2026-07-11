@@ -1,0 +1,88 @@
+#include <iostream>
+
+using namespace std;
+
+struct sDate
+{
+    short year;
+    short month;
+    short day;
+};
+
+short ReadYear(); 
+short ReadMonth();
+short ReadDay();
+sDate readAllDate();
+
+bool IsleapYear(short year);
+short NumberOfDaysInMonth(short year, short month);
+bool IsValidDate(sDate dateTocheck);
+
+int main()
+{
+    sDate dateToCheck = readAllDate();
+
+    if (IsValidDate(dateToCheck))
+        cout << "Yes, Date is a valide date." << endl;
+    else
+        cout << "No, Date is a NOT valide date" << endl;
+
+    return 0;
+}
+
+short ReadYear()
+{
+    short year = 0;
+    cout << "Please enter a Year? ";
+    cin >> year;
+    return year;
+}
+
+short ReadMonth()
+{
+    short month = 0;
+    cout << "Please enter a Month? ";
+    cin >> month;
+    return month;
+}
+
+short ReadDay()
+{
+    short day = 0;
+    cout << "Please enter a Day? "; 
+    cin >> day;
+    return day;
+}
+
+sDate readAllDate()
+{
+    sDate date;
+    date.day   = ReadDay();
+    date.month = ReadMonth();
+    date.year  = ReadYear();
+    cout << "\n";
+    return date;
+}
+
+bool IsleapYear(short year)
+{
+    return (year % 4 == 0 && year % 100 != 0 ) || (year % 400 == 0);
+}
+
+short NumberOfDaysInMonth(short year, short month)
+{
+    if (month < 1 || month > 12) return 0;
+
+    short arrNumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    return (month == 2) ? (IsleapYear(year) ? 29 : 28) : arrNumberOfDays[month - 1];
+}
+
+bool IsValidDate(sDate dateTocheck)
+{
+    if (dateTocheck.month >= 1 && dateTocheck.month <= 12 &&
+        dateTocheck.day >= 1 && dateTocheck.day <= NumberOfDaysInMonth(dateTocheck.year, dateTocheck.month))
+    {
+        return true;
+    }
+    return false;
+}

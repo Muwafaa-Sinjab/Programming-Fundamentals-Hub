@@ -1,0 +1,83 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+struct sClientInfo
+{
+    string accountNumber;
+    string pinCode;
+    string name;
+    string phoneNumber;
+    double accountBalance;
+};
+
+vector<string> splitString(string text, string delimiter);
+sClientInfo convertLineToRecord(string line, string delimiter);
+void printClientRecord(sClientInfo client);
+
+int main()
+{   
+    sClientInfo client;
+    string lineRecord = "A69038#//#321#//#Muwafaa Sinjab#//#0531387404#//#43213.000000";
+
+    cout << "\nLine Record is: " << lineRecord;
+    client = convertLineToRecord(lineRecord, "#//#");
+
+    cout << "\n\nClient Record:\n";
+    printClientRecord(client);
+   
+    return 0;
+}
+
+vector<string> splitString(string text, string delimiter)
+{
+    short delimiterPosition = 0;
+    string currentWord;
+    vector<string> words;
+
+    while ((delimiterPosition = text.find(delimiter)) != string::npos)
+    {
+        currentWord = text.substr(0, delimiterPosition);
+
+        if (currentWord != "")
+        {
+            words.push_back(currentWord);
+        }
+
+        text.erase(0, delimiterPosition + delimiter.length());
+    }
+
+    if (text != "")
+    {
+        words.push_back(text);
+    }
+
+    return words;
+}
+
+sClientInfo convertLineToRecord(string line, string delimiter)
+{   
+    sClientInfo client;
+    vector<string> clientTokens;
+    
+    clientTokens = splitString(line, delimiter);
+
+    client.accountNumber = clientTokens[0];
+    client.pinCode = clientTokens[1];
+    client.name = clientTokens[2];
+    client.phoneNumber = clientTokens[3];
+    client.accountBalance = stod(clientTokens[4]);
+
+    return client;
+}
+
+void printClientRecord(sClientInfo client)
+{
+    cout << client.accountNumber << endl;
+    cout << client.pinCode << endl;
+    cout << client.name << endl;
+    cout << client.phoneNumber << endl;
+    cout << client.accountBalance << endl;
+}

@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string ReadCapital3Letters(string Massage){
+    
+    string Letter = "";
+
+    cout << Massage;
+    cin >> Letter;
+    
+    return Letter;
+}
+
+bool PrintLettersFromAAAToZZZ(string Letter){
+    
+    int counter = 0;
+    string word = "";
+    
+    for (int i = 65; i <= 90; i++){
+        
+        for (int j = 65; j <= 90; j++){
+            
+            for (int k = 65; k <= 90; k++){
+                
+                counter++;
+                word = word + char(i);
+                word = word + char(j);
+                word = word + char(k);
+                
+                cout << "Trail [ " << counter  << " ]: " << word << endl; 
+                
+                
+                if (Letter == word){
+                    cout << "\nPassword is " << word << endl;
+                    cout << "Found after " << counter << " Trail(s).";
+                    return true;
+                }
+                word = "";
+            }
+        }
+        
+    }
+    cout << "No True Password";
+    return false;
+}
+
+
+
+int main()
+{
+    PrintLettersFromAAAToZZZ(ReadCapital3Letters("Enter 3 Capital Letters: "));
+    return 0;
+}

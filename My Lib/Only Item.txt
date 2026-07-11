@@ -1,0 +1,5 @@
+while (cin.fail())
+{ 
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}

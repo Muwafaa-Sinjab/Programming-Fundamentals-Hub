@@ -1,0 +1,97 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+vector<string> SplitString(string text, string delimiter);
+string JoinString(vector<string> inputText, string delimiter);
+string replaceWordCustomFunction(string st, string stringToReplace, string ReplaceTo, bool MatchCase = true);
+
+
+int main()
+{   
+    string st = "My Name is Muwafaa, I'm From Syria , Syria is a graet place";
+    string stringToReplace = "syria";
+    string ReplaceTo = "USA";
+
+    cout << "Replace with match case is: " << replaceWordCustomFunction(st, stringToReplace, ReplaceTo) << "\n";
+    cout << "Replace with out match case is: " << replaceWordCustomFunction(st, stringToReplace, ReplaceTo, false) << "\n";
+
+    return 0;
+}
+
+vector<string> SplitString(string text, string delimiter)
+{
+    short delimiterPosition = 0;
+
+    string currentWord;
+    vector<string> words;
+
+    while ((delimiterPosition = text.find(delimiter)) != string::npos)
+    {
+        currentWord = text.substr(0, delimiterPosition);
+
+        if (currentWord != "")
+        {
+            words.push_back(currentWord);
+        }
+
+        text.erase(0, delimiterPosition + delimiter.length());
+    }
+
+    if (text != "")
+    {
+        words.push_back(text);
+    }
+
+    return words;
+}
+
+string JoinString(vector<string> inputText, string delimiter)
+{
+    string text = "";
+
+    for(string& word : inputText)
+    {
+        text = text + word + delimiter;
+    }
+
+    if(!text.empty())
+    {
+        text = text.substr(0, text.length() - delimiter.length());
+    }
+    
+    return text;
+}
+
+string LowerAllString(string S1)
+{
+    for (short i = 0; i < S1.length(); i++)
+    {
+        S1[i] = tolower(S1[i]);
+    }
+    return S1;
+}
+
+string replaceWordCustomFunction(string st, string stringToReplace, string ReplaceTo, bool MatchCase)
+{
+    vector<string> vText = SplitString(st, " ");
+
+    for(string &Word: vText)
+    {
+        if (MatchCase)
+        {
+            if (Word == stringToReplace)
+                Word = ReplaceTo;
+        }
+        else
+        {
+            if (LowerAllString(Word) == LowerAllString(stringToReplace))
+                Word = ReplaceTo;
+        }
+    }
+
+    st = JoinString(vText, " ");
+
+    return st;
+}

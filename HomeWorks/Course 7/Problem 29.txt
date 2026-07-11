@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+string readString(string message);
+size_t getStringLength(string st);
+int coutCapitalLetters(string st);
+int coutSmallLetters(string st);
+
+
+int main()
+{
+    string st = readString("Please Enter a String: ");
+
+    size_t stringLength = getStringLength(st);
+    cout << "\nString lenght = " << stringLength << endl;
+
+    cout << "\nCapital Letters Coiunt = " << coutCapitalLetters(st);
+    cout << "\nSmall Letters Coiunt = " << coutSmallLetters(st);
+
+
+    return 0;
+}
+
+string readString(string message)
+{
+    string input;
+    cout << message << endl;;
+    getline(cin, input);
+
+    return input;
+}
+
+size_t getStringLength(string st)
+{
+    return st.length();
+}
+
+int coutCapitalLetters(string st)
+{
+    short Count = 0;
+
+    for(int i = 0; i < st.length(); i++)
+    {
+        if (isupper(st[i]))
+        {
+            Count++;
+        }
+    }
+    return Count;
+}
+
+int coutSmallLetters(string st)
+{
+    short Count = 0;
+
+    for(int i = 0; i < st.length(); i++)
+    {
+        if (islower(st[i]))
+        {
+            Count++;
+        }
+    }
+    return Count;
+}

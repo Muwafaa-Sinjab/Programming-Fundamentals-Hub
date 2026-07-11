@@ -1,0 +1,144 @@
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+struct sDate
+{
+    short year;
+    short month;
+    short day;
+};
+
+short ReadYear(); 
+short ReadMonth();
+short ReadDay();
+
+sDate readAllDate();
+bool IsleapYear(short year);
+short NumberOfDaysInMonth(short year, short month);
+
+bool IsLastDayInMonth(sDate date);
+bool IsLastMonthInYear(sDate date);
+sDate IncreaseDateByOneDay(sDate &date);
+bool IsDate1EqualDate2(sDate date1, sDate date2);
+short DiffInDays(sDate date1, sDate date2, bool includeEndDay = false);
+sDate GetSystemDate();
+
+int main()
+{
+    sDate date1 = readAllDate();
+    cout << "\n";
+    sDate date2 = GetSystemDate();
+
+    cout << "Your age is: " <<  DiffInDays(date1, date2, true) << " Day(s)" << endl;
+    return 0;
+}
+
+short ReadYear()
+{
+    short year = 0;
+    cout << "Please Enter to check year: ";
+    cin >> year;
+    return year;
+}
+
+short ReadMonth()
+{
+    short month = 0;
+    cout << "Please Enter to check month: ";
+    cin >> month;
+    return month;
+}
+
+short ReadDay()
+{
+    short day = 0;
+    cout << "Please Enter to check Day: ";
+    cin >> day;
+    return day;
+}
+
+sDate readAllDate()
+{
+    sDate date;
+
+    date.day   = ReadDay();
+    date.month = ReadMonth();
+    date.year  = ReadYear();
+
+    return date;
+}
+
+bool IsleapYear(short year)
+{
+    return (year % 4 == 0 && year % 100 != 0 ) || (year % 400 == 0);
+}
+
+short NumberOfDaysInMonth(short year, short month)
+{
+    if (month < 1 || month > 12) return 0;
+
+    short arrNumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    return (month == 2) ? (IsleapYear(year) ? 29 : 28) : arrNumberOfDays[month - 1];
+}
+
+bool IsLastDayInMonth(sDate date)
+{   
+    return (date.day == NumberOfDaysInMonth(date.year, date.month));
+}
+
+bool IsLastMonthInYear(sDate date)
+{
+    return (date.month == 12);
+}
+
+sDate IncreaseDateByOneDay(sDate &date)
+{
+    if(IsLastDayInMonth(date) && IsLastMonthInYear(date))
+    {
+        date.day = 1; date.month = 1; date.year++;
+    }
+    else if(IsLastDayInMonth(date))
+    {
+        date.day = 1;  date.month++;
+    }
+    else
+    {
+        date.day++;
+    }
+
+    return date;
+}
+
+bool IsDate1EqualDate2(sDate date1, sDate date2)
+{
+    return (date1.day == date2.day && date1.month == date2.month && date1.year == date2.year);
+}
+
+short DiffInDays(sDate date1, sDate date2, bool includeEndDay)
+{
+    short count = 0;
+
+    while (!IsDate1EqualDate2(date1, date2))
+    {
+        count++;
+        IncreaseDateByOneDay(date1);
+    }
+    
+    return includeEndDay ? ++count : count;
+}
+
+sDate GetSystemDate()
+{
+    sDate date;
+
+    time_t t = time(0);
+    tm* now = localtime(&t);
+
+    date.year  = now->tm_year + 1900;
+    date.month = now->tm_mon + 1;
+    date.day   = now->tm_mday;
+
+    return date;
+}

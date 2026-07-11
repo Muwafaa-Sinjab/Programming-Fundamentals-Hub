@@ -1,0 +1,70 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+
+using namespace std;
+
+void Print2DArray(int Matrix1[3][3], int Rows, int Cols);
+int ReadPositiveNumber(string Message);
+int CheckCountNumber(int Matrix1[3][3], int Rows, int Cols, int NumberToCheck);
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int Matrix1[3][3] = 
+    {
+        {2, 0 ,0},
+        {0, 2 ,0},
+        {0, 0 ,2}
+    };
+    
+
+    cout << "\nMatrix:\n";
+    Print2DArray(Matrix1, 3,3);
+
+    int NumberToCheck = ReadPositiveNumber("Enter the Number to count in matrix: ");
+
+    cout << "Number " << NumberToCheck << " is count in matrix "
+        << CheckCountNumber(Matrix1, 3, 3, NumberToCheck) << " time(s)" << endl;
+
+    return 0;
+}
+
+void Print2DArray(int Matrix1[3][3], int Rows, int Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+            cout << Matrix1[i][j] << "  ";
+        cout << endl;
+    }
+}
+
+int CheckCountNumber(int Matrix1[3][3], int Rows, int Cols, int NumberToCheck)
+{
+    int Counter = 0;
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {   
+            if (Matrix1[i][j] == NumberToCheck)
+                Counter++;
+        }
+    }
+    return Counter;
+}
+
+int ReadPositiveNumber(string Message)
+{
+    int Number = 0;
+    do
+    {
+        cout << Message;
+        cin >> Number;
+    } while (Number <= 0);
+
+    return Number;
+}

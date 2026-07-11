@@ -1,0 +1,59 @@
+#include iostream
+using namespace std;
+
+enum enScreenColor { Red = 1, Blue = 2, Green = 3, Yellow = 4 };
+
+
+void PrintChoiceColor(short &Num){
+    
+    cout  n;
+    cout  Please Chose the number of your colorn;
+    cout  (1) Redn;
+    cout  (2) Bluen;
+    cout  (3) Greenn;
+    cout  (4) Yellown;
+    cout  nn;
+    cout  Your Choice ;
+    
+    cin  Num;
+}
+
+void SetupData(short Num, enScreenColor &Color){
+    
+    Color = (enScreenColor) Num;
+}
+
+void PrintData(enScreenColor Color){
+    
+    if (Color == enScreenColorRed){
+        
+        cout  Your Choice is Red;
+        
+    }else if (Color == enScreenColorBlue){
+        
+        cout  Your Choice is Blue;
+        
+    }else if (Color == enScreenColorGreen){
+        
+        cout  Your Choice is Green;
+        
+    }else if (Color == enScreenColorYellow){
+        
+        cout  Your Choice is Yellow;
+    }else{
+        
+        cout  Sorry No Data;
+    }
+}
+
+int main()
+{
+    short Num;
+    enScreenColor Color;
+    
+    PrintChoiceColor(Num);
+    SetupData(Num, Color);
+    PrintData(Color);
+    
+    return 0;
+}

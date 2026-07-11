@@ -1,0 +1,60 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int RandomNumber(int From, int To);
+void Fill2DArrayWithRandomNumbers(int Matrix1[3][3], short Rows, short Cols);
+int SumOfMatrix(int Matrix1[3][3], short Rows, short Cols);
+void Print2DArray(int Matrix1[3][3], short Rows, short Cols);
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int Matrix1[3][3];
+
+    Fill2DArrayWithRandomNumbers(Matrix1, 3, 3);
+
+    cout << "\nMatrix:\n";
+    Print2DArray(Matrix1, 3, 3);
+
+    cout << "Sum of Matrix is: " 
+        << SumOfMatrix(Matrix1, 3, 3) << endl;
+
+    return 0;
+}
+
+void Fill2DArrayWithRandomNumbers(int Matrix1[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+        for (int j = 0; j < Cols; j++)
+            Matrix1[i][j] = RandomNumber(1, 10);
+}
+
+void Print2DArray(int Matrix1[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+            cout << setw(2) << setfill('0') << Matrix1[i][j] << "  ";
+        cout << endl;
+    }
+}
+
+int SumOfMatrix(int Matrix1[3][3], short Rows, short Cols)
+{
+    short Sum = 0;
+        for (int i = 0; i < Rows; i++)
+            for (int j = 0; j < Cols; j++)
+                Sum = Sum + Matrix1[i][j];
+
+        return Sum;
+}
+
+int RandomNumber(int From, int To)
+{
+    return rand() % (To - From + 1) + From;
+}

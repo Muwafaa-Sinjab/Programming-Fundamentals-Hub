@@ -1,0 +1,57 @@
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+char flipCase(char c) ;
+string readString(string message);
+char readChar(string message);
+int coutSpecificLetterForBothCase(string st, char ch, bool MatchCase = true);
+
+int main()
+{
+    string st = readString("Please Enter a String: ");
+    char ch = readChar("Please Enter a character: ");
+
+    cout << "\nLetter " << ch << " count = " << coutSpecificLetterForBothCase(st, ch);
+    cout << "\nLetter " << ch << " or " << flipCase(ch) << " count = " << coutSpecificLetterForBothCase(st, ch, false);
+
+    return 0;
+}
+
+string readString(string message)
+{
+    string input;
+    cout << message;
+    getline(cin, input);
+
+    return input;
+}
+
+char readChar(string message)
+{
+    char input;
+    cout << message;
+    cin >> input;
+    return input;
+}
+
+int coutSpecificLetterForBothCase(string st, char ch, bool MatchCase)
+{
+    int count = 0;
+
+    for (char c : st)
+    { 
+        if (MatchCase) {
+            if (c == ch) count++;
+        } else {
+            if (toupper(c) == toupper(ch)) count++;
+        }
+    }
+    return count;
+}
+
+char flipCase(char c) 
+{
+    return isupper(c) ? tolower(c) : toupper(c);
+}

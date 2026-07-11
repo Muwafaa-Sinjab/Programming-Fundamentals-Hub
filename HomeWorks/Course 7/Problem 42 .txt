@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReplaceWordInString(string st, string stringToReplace, string sReplaceTo);
+
+int main()
+{   
+    string st = "My Name is Muwafaa, I'm From Syria, Syria is a graet place";
+    string stringToReplace = "Syria";
+    string ReplaceTo = "USA";
+
+    cout << "Your String after replace is: " << ReplaceWordInString(st, stringToReplace, ReplaceTo) << "\n";
+
+    return 0;
+}
+
+string ReplaceWordInString(string st, string stringToReplace, string sReplaceTo)
+{
+    short pos = st.find(stringToReplace);
+
+    while(pos != std::string::npos)
+    {
+        st = st.replace(pos, stringToReplace.length(), sReplaceTo);
+        pos = st.find(stringToReplace);
+    }
+
+    return st;
+}

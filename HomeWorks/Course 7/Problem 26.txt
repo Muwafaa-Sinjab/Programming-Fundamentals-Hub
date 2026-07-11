@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+string readString();
+string toUpperCase(string sentence);
+string toLowerCase(string sentence);
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    
+    string text = readString();
+
+    cout << "\nText in Uppercase:" << endl;
+    text = toUpperCase(text);
+    cout << text << endl;
+
+    cout << "\nText in Lowercase:" << endl;
+    text = toLowerCase(text);
+    cout << text << endl;
+
+}
+
+string readString()
+{
+    string sentence = "";
+
+    cout << "Please Enter Your String:" << endl;;
+    getline(cin, sentence);
+
+    return sentence;
+}
+
+string toUpperCase(string sentence)
+{   
+    for (short i = 0; i < sentence.length(); i++)
+    {   
+        if(sentence[i] != ' ')
+        {
+            sentence[i] = toupper(sentence[i]);
+        }
+    }
+
+    return sentence;
+}
+
+string toLowerCase(string sentence)
+{   
+    for (short i = 0; i < sentence.length(); i++)
+    {   
+        if(sentence[i] != ' ')
+        {
+            sentence[i] = tolower(sentence[i]);
+        }
+    }
+
+    return sentence;
+}

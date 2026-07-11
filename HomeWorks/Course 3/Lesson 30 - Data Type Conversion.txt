@@ -1,0 +1,60 @@
+/* Q: Write a program to do the following:
+    Convert String st1 = "43.22" to double, float and int
+    Convert int N1 = 20 to string
+    Convert double N2 = 33.5 to string
+    Convert float N3 = 55.23 to string and int 
+*/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    
+    // Task 1 
+    
+    string st1 = "43.22";
+    
+    double DoN1 = stod(st1);
+    float FlN2 = stof(st1);
+    int InN3 = stoi(st1);
+    
+    cout << DoN1 << endl;
+    cout << FlN2 << endl;
+    cout << InN3 << endl;
+    
+    cout << "========================" << endl;
+    
+    // Task 2
+    
+    int N1 = 20;
+    string st2 = to_string(N1);
+    
+    cout << st2 << endl;
+    
+    cout << "========================" << endl;
+    
+    // Task 3
+    
+    double N2 = 33.5;
+    string st3 = to_string(N2);
+    
+    cout << st3 << endl;
+    
+    cout << "========================" << endl;
+    
+    // Task 4
+    
+    float N3 = 55.23;
+    string st4 = to_string(N3);
+    
+    int Num = N3;
+    
+    cout << st4 << endl;
+    cout <<  Num << endl;
+    
+    
+    return 0;
+}
+  

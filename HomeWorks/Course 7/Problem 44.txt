@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string RemovePauncuationsMark(string St);
+
+int main()
+{   
+   string St = "My Name is Muwafaa, I'm from Syrai, and it's I nice place";
+
+   cout << St << endl;
+   cout << RemovePauncuationsMark(St) << endl;
+    return 0;
+}
+
+string RemovePauncuationsMark(string St)
+{   
+    string Word = "";
+    for(int i = 0; i < St.length(); i++)
+    {
+        if(!ispunct(St[i]))
+        {
+            Word = Word + St[i];
+        }
+    }
+    return Word;
+}

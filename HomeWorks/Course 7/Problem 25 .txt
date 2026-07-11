@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <ctime>
+using namespace std;
+
+string ReadText();
+string LowerFirstLetterOfEachWord(string sentence);
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    
+    string S1 = ReadText();
+
+    cout << "\nYour Text After conversion:" << endl;
+    S1 = LowerFirstLetterOfEachWord(S1);
+    cout << S1 << endl;
+
+}
+
+string ReadText()
+{
+    string sentence = "";
+
+    cout << "Please Enter Your String:" << endl;;
+    getline(cin, sentence);
+
+    return sentence;
+}
+
+string LowerFirstLetterOfEachWord(string sentence)
+{   
+    bool IsFirstLetter = true;
+
+    for (short i = 0; i < sentence.length(); i++)
+    {   
+        if(sentence[i] != ' ' && IsFirstLetter)
+        {
+            sentence[i] = tolower(sentence[i]);
+        }
+        
+        IsFirstLetter = (sentence[i] == ' ' ? true : false);
+    }
+
+    return sentence;
+}
+
+
+
+    

@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+enum enVowelsCharactar {a = 'a', e = 'e', i = 'i', o = 'o', u = 'u'};
+
+string readString(string message);
+bool IsVowelCharacter(char ch);
+short CountVowels(string st);
+
+int main()
+{
+    string st = readString("Please Enter a String: ");
+
+    cout << "Number of vowels = " << CountVowels(st) << endl;
+    return 0;
+}
+
+string readString(string message)
+{
+    string input;
+    cout << message;
+    getline(cin,input);
+    return input;
+}
+
+bool IsVowelCharacter(char ch)
+{
+    ch = tolower(ch);
+
+    return(ch == enVowelsCharactar::a ||  
+       ch == enVowelsCharactar::e ||
+       ch == enVowelsCharactar::i ||  
+       ch == enVowelsCharactar::o ||
+       ch == enVowelsCharactar::u);
+}
+
+short CountVowels(string st)
+{
+    short count = 0;
+
+    for(int i = 0; i < st.length(); i++)
+    {
+        if(IsVowelCharacter(st[i]))
+            count++;
+    }
+    return count;
+}

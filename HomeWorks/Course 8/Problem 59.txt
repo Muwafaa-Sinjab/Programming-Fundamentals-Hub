@@ -1,0 +1,150 @@
+#include <iostream>
+#include <ctime>
+#include <string>
+
+using namespace std;
+
+struct sDate
+{
+    short year;
+    short month;
+    short day;
+};
+
+struct sPeriod
+{
+    sDate startDate;
+    sDate endDate;
+};
+
+short ReadYear(); 
+short ReadMonth();
+short ReadDay();
+sDate readAllDate();
+
+bool IsleapYear(short year);
+short NumberOfDaysInMonth(short year, short month);
+bool IsLastDayInMonth(sDate date);
+bool IsLastMonthInYear(short month);
+sDate IncreaseDateByOneDay(sDate date);
+bool IsDateOneBeforeDateTwo(sDate date1, sDate date2);
+
+short GetDifferencesInDays(sDate date1, sDate date2, bool IncludeEndDay = false);
+short PeriodLengthInDays(sPeriod period, bool IncludeEndDay = false);
+
+int main()
+{
+    sPeriod period; 
+
+    cout << "\nEnter First Period:\n" << endl;
+    cout << "Enter Start Date:" << endl;
+    period.startDate = readAllDate();
+    cout << "Enter End Date:" << endl;
+    period.endDate   = readAllDate();
+
+    cout << "\nPeriod Length is: " << PeriodLengthInDays(period) << endl;
+    cout << "Period Length (Including End Date) is: " << PeriodLengthInDays(period, true) << endl;
+    return 0;
+}
+
+short ReadYear()
+{
+    short year = 0;
+    cout << "Please Enter a year: ";
+    cin >> year;
+    return year;
+}
+
+short ReadMonth()
+{
+    short month = 0;
+    cout << "Please Enter a month: ";
+    cin >> month;
+    return month;
+}
+
+short ReadDay()
+{
+    short day = 0;
+    cout << "Please enter a Day? "; 
+    cin >> day;
+    return day;
+}
+
+sDate readAllDate()
+{
+    sDate date;
+    date.day   = ReadDay();
+    date.month = ReadMonth();
+    date.year  = ReadYear();
+    cout << "\n";
+    return date;
+}
+
+bool IsleapYear(short year)
+{
+    return (year % 4 == 0 && year % 100 != 0 ) || (year % 400 == 0);
+}
+
+short NumberOfDaysInMonth(short year, short month)
+{
+    if (month < 1 || month > 12) return 0;
+
+    short arrNumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    return (month == 2) ? (IsleapYear(year) ? 29 : 28) : arrNumberOfDays[month - 1];
+}
+
+bool IsLastDayInMonth(sDate date)
+{
+    return (date.day == NumberOfDaysInMonth(date.year, date.month));
+}
+
+bool IsLastMonthInYear(short month)
+{
+    return (month == 12);
+}
+
+sDate IncreaseDateByOneDay(sDate date)
+{
+    if(IsLastDayInMonth(date))
+    {
+        if(IsLastMonthInYear(date.month))
+        {
+            date.month = 1;
+            date.day = 1;
+            date.year++;
+        }
+        else
+        {
+            date.day = 1;
+            date.month++;
+        }
+    }
+    else
+    {
+        date.day++;
+    }
+    return date;
+}
+bool IsDateOneBeforeDateTwo(sDate date1, sDate date2)
+{
+    return (date1.year < date2.year) ? true : 
+           ((date1.year == date2.year) ? (date1.month < date2.month ? true : 
+           (date1.month == date2.month ? date1.day < date2.day : false)) : false);
+}
+
+short GetDifferencesInDays(sDate date1, sDate date2, bool IncludeEndDay)
+{
+    int Days = 0;
+    while (IsDateOneBeforeDateTwo(date1, date2))
+    {   
+        Days++;
+        date1 = IncreaseDateByOneDay(date1);
+    }
+    return IncludeEndDay ? ++Days : Days;
+}
+
+short PeriodLengthInDays(sPeriod period, bool IncludeEndDay)
+{
+    return GetDifferencesInDays(period.startDate, period.endDate, IncludeEndDay);
+}

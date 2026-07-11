@@ -1,0 +1,293 @@
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+struct sDate
+{
+    short year;
+    short month;
+    short day;
+};
+
+short ReadYear(); 
+short ReadMonth();
+short ReadDay();
+
+sDate readAllDate();
+bool IsleapYear(short year);
+short NumberOfDaysInMonth(short year, short month);
+
+bool IsLastDayInMonth(sDate date);
+bool IsLastMonthInYear(sDate date);
+sDate IncreaseDateByOneDay(sDate &date);
+
+sDate IncreaseDateByXDays(short xDays, sDate &date);
+sDate IncreaseDateByOneWeek(sDate &date);
+sDate IncreaseDateByXWeeks( short xWeeks, sDate &date);
+sDate IncreaseDateByOneMonth(sDate &date);
+sDate IncreaseDateByXMonths(short xMonths, sDate &date);
+sDate IncreaseDateByOneYear(sDate &date);
+sDate IncreaseDateByXYears(short xYears, sDate &date);
+sDate IncreaseDateByXYearsFaster(short xYearsFaster, sDate &date);
+sDate IncreaseDateByOneDecade(sDate &date);
+sDate IncreaseDateByXDecade(short xDecade, sDate &date);
+sDate IncreaseDateByXDecadeFaster(short xDecadeFaster, sDate &date);
+sDate IncreaseDateByOneCentury(sDate &date);
+sDate IncreaseDateByOneMillennium(sDate &date);
+
+int main()
+{
+    sDate date = readAllDate();
+    
+    cout << "Date After:\n\n";
+    
+    IncreaseDateByOneDay(date);
+    cout << "01-Adding one day is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByXDays(10, date);
+    cout << "02-Adding 10 days is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByOneWeek(date);
+    cout << "03-Adding one week is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByXWeeks(10, date);
+    cout << "04-Adding 10 weeks is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByOneMonth(date);
+    cout << "05-Adding one month is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByXMonths(5, date);
+    cout << "06-Adding 5 months is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByOneYear(date);
+    cout << "07-Adding one year is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByXYears(10, date);
+    cout << "08-Adding 10 Years is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByXYearsFaster(10, date);
+    cout << "09-Adding 10 Years (faster) is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByOneDecade(date);
+    cout << "10-Adding one Decade is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByXDecade(10, date);
+    cout << "11-Adding 10 Decades is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByXDecadeFaster(10, date);
+    cout << "12-Adding 10 Decade (faster) is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByOneCentury(date);
+    cout << "13-Adding One Century is: " << date.day << "/" << date.month << "/" << date.year << endl;
+    
+    IncreaseDateByOneMillennium(date);
+    cout << "14-Adding One Millennium is: " << date.day << "/" << date.month << "/" << date.year << endl;
+
+    return 0;
+}
+
+short ReadYear()
+{
+    short year = 0;
+    cout << "Please Enter to check year: ";
+    cin >> year;
+    return year;
+}
+
+short ReadMonth()
+{
+    short month = 0;
+    cout << "Please Enter to check month: ";
+    cin >> month;
+    return month;
+}
+
+short ReadDay()
+{
+    short day = 0;
+    cout << "Please Enter to check Day: ";
+    cin >> day;
+    return day;
+}
+
+sDate readAllDate()
+{
+    sDate date;
+
+    date.day   = ReadDay();
+    date.month = ReadMonth();
+    date.year  = ReadYear();
+
+    return date;
+}
+
+bool IsleapYear(short year)
+{
+    return (year % 4 == 0 && year % 100 != 0 ) || (year % 400 == 0);
+}
+
+short NumberOfDaysInMonth(short year, short month)
+{
+    if (month < 1 || month > 12) return 0;
+
+    short arrNumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    return (month == 2) ? (IsleapYear(year) ? 29 : 28) : arrNumberOfDays[month - 1];
+}
+
+bool IsLastDayInMonth(sDate date)
+{   
+    return (date.day == NumberOfDaysInMonth(date.year, date.month));
+}
+
+bool IsLastMonthInYear(sDate date)
+{
+    return (date.month == 12);
+}
+
+sDate IncreaseDateByOneDay(sDate &date)
+{
+    if(IsLastDayInMonth(date) && IsLastMonthInYear(date))
+    {
+        date.day = 1; date.month = 1; date.year++;
+    }
+    else if(IsLastDayInMonth(date))
+    {
+        date.day = 1;  date.month++;
+    }
+    else
+    {
+        date.day++;
+    }
+
+    return date;
+}
+
+sDate IncreaseDateByXDays(short xDays, sDate &date)
+{
+    for(int i = 0; i < xDays; i++)
+    {
+        date = IncreaseDateByOneDay(date);
+    }
+    return date;
+}
+
+sDate IncreaseDateByOneWeek(sDate &date)
+{
+    for(int i = 0; i < 7; i++)
+    {
+        date = IncreaseDateByOneDay(date);
+    }
+    return date;
+}
+
+sDate IncreaseDateByXWeeks( short xWeeks, sDate &date)
+{
+    for(int i = 0; i < xWeeks; i++)
+    {
+        date = IncreaseDateByOneWeek(date);
+    }
+    return date;
+}
+
+sDate IncreaseDateByOneMonth(sDate &date)
+{
+    if(date.month == 12)
+    {
+        date.month = 1;
+        date.year++;
+    }
+    else
+    {
+        date.month++;
+    }
+
+    short numberOfDaysInCurrentMonth = NumberOfDaysInMonth(date.year, date.month);
+
+    if(date.day > numberOfDaysInCurrentMonth)
+    {
+        date.day = numberOfDaysInCurrentMonth;
+    }
+    return date;
+}
+
+sDate IncreaseDateByXMonths(short xMonths, sDate &date)
+{
+    for(int i = 0; i < xMonths; i++)
+    {
+        date = IncreaseDateByOneMonth(date);
+    }
+    return date;
+}
+
+sDate IncreaseDateByOneYear(sDate &date)
+{
+    date.year++;
+    if(date.month == 2 && date.day == 29 && !IsleapYear(date.year))
+    {
+        date.day = 28;
+    }
+    return date;
+}
+
+sDate IncreaseDateByXYears(short xYears, sDate &date)
+{
+    for(int i = 0; i < xYears; i++)
+    {
+        date = IncreaseDateByOneYear(date);
+    }
+    return date;
+}
+
+sDate IncreaseDateByXYearsFaster(short xYearsFaster, sDate &date)
+{
+    date.year += xYearsFaster;
+    if(date.month == 2 && date.day == 29 && !IsleapYear(date.year))
+    {
+        date.day = 28;
+    }
+    return date;
+}
+
+sDate IncreaseDateByOneDecade(sDate &date)
+{
+    date = IncreaseDateByXYearsFaster(10, date);
+    return date;
+}
+
+sDate IncreaseDateByXDecade(short xDecade, sDate &date)
+{
+    for(int i = 0; i < xDecade; i++)
+    {
+        date = IncreaseDateByOneDecade(date);
+    }
+    return date;
+}
+
+sDate IncreaseDateByXDecadeFaster(short xDecadeFaster, sDate &date)
+{
+    date.year += (xDecadeFaster * 10);
+    if(date.month == 2 && date.day == 29 && !IsleapYear(date.year))
+    {
+        date.day = 28;
+    }
+    return date;
+}
+
+sDate IncreaseDateByOneCentury(sDate &date)
+{
+    for(int i = 0; i < 10; i++)
+    {
+        date = IncreaseDateByOneDecade(date);
+    }
+    return date;
+}
+
+sDate IncreaseDateByOneMillennium(sDate &date)
+{
+    for(int i = 0; i < 10; i++)
+    {
+        date = IncreaseDateByOneCentury(date);
+    }
+    return date;
+}

@@ -1,0 +1,49 @@
+#include <iostream>
+#include <iomanip>
+#include <cctype>
+
+using namespace std;
+
+string readString(string message);
+void printString(string st);
+
+
+int main()
+{
+    string st = readString("Please Enter a String: ");
+    
+    printString(st);
+
+    return 0;
+}
+
+string readString(string message)
+{
+    string input;
+    cout << message;
+    getline(cin,input);
+    return input;
+}
+
+void printString(string st)
+{
+    string delim = " ";
+    short pos = 0;
+    string sWord;
+
+    while((pos = st.find(delim)) != std::string::npos)
+    {
+        sWord = st.substr(0, pos);
+
+        if(sWord != "")
+        {
+            cout << sWord << endl;
+        }
+            st.erase(0, pos + delim.length());
+    }
+
+    if(st != "")
+    {
+        cout << st << endl;
+    }
+}
