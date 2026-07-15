@@ -22,7 +22,7 @@ The video demonstrates the operation using the numbers 12 and 25:
   12 = 00001100
   25 = 00011001
   ----------------
-  &   = 00001000  (which is 8 in decimal)
+  &  = 00001000  (which is 8 in decimal)
 ```
 
 The result of `12 & 25` is 8.
