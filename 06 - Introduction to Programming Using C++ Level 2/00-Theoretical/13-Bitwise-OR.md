@@ -8,7 +8,7 @@ This video introduces the Bitwise OR operator. It explains the difference betwee
 
 ### Bitwise OR vs Logical OR
 
-The Bitwise OR operator uses a single vertical bar (`|`), while the logical OR operator uses two (`||`). The logical operator is used for boolean conditions, whereas the Bitwise operator performs calculations on the actual binary digits of numbers.
+The Bitwise OR operator uses a single vertical bar (`|`), while the logical OR operator uses two (`||`). The logical operator is used for boolean conditions, whereas the Bitwise operator performs calculations on the actual binary digits of numbers
 
 ### How Bitwise OR Works
 
