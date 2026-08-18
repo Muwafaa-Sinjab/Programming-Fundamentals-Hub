@@ -30,7 +30,7 @@ Course content should not be interpreted as proof that I personally implemented 
 
 | Progress    | Current Course                             | Status                 |
 | ----------- | ------------------------------------------ | ---------------------- |
-| **13 / 24** | **Algorithms & Problem Solving – Level 5** | **Currently Studying** |
+| **14 / 24** | **C# – Level 1**                           | **Currently Studying** |
 
 ### Status
 
@@ -60,8 +60,8 @@ When moving to the next course, the main update should be changing the progress 
 | 10 | OOP as it Should Be – Concepts                      | Completed              | Object-oriented programming concepts              |
 | 11 | OOP as it Should Be – Applications                  | Completed              | Applying OOP in practical projects                |
 | 12 | Data Structures – Level 1                           | Completed              | Data structures and complexity                    |
-| 13 | Algorithms & Problem Solving – Level 5              | **Currently Studying** | Consolidation, projects, and system extensions    |
-| 14 | C# – Level 1                                        | Upcoming               | C# and .NET foundations                           |
+| 13 | Algorithms & Problem Solving – Level 5              | Completed              | Consolidation, projects, and system extensions    |
+| 14 | C# – Level 1                                        | **Currently Studying** | C# and .NET foundations                           |
 | 15 | Database – Level 1 (SQL: Concepts & Practice)       | Upcoming               | Database design and SQL                           |
 | 16 | OOP as It Should Be in C#                           | Upcoming               | OOP applied to C#                                 |
 | 17 | Database – SQL (Projects & Practice)                | Upcoming               | Advanced SQL practice                             |
