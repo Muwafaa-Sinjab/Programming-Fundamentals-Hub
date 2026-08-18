@@ -222,14 +222,6 @@ It covers:
 
 The intended outcome is to develop the ability to think about computation from the computer's perspective before writing code.
 
-### What I Actually Did
-
-This source does not provide enough specific information to identify individual personal implementations or projects for this course.
-
-### What You Can Find in This Repository
-
-The exact repository files and paths are not specified in the available course information.
-
 ---
 
 ## Course 02 — Algorithms & Problem Solving – Level 1
@@ -245,16 +237,7 @@ It focuses on:
 * Step-by-step reasoning
 * Input, process, and output
 * Breaking problems into smaller steps
-
-The course specifies 50 problems using visual problem-solving techniques.
-
-### What I Actually Did
-
-The available source does not provide enough evidence to attribute specific solutions to my personal repository.
-
-### What You Can Find in This Repository
-
-Exact files and paths are not specified.
+* 50 programming problems
 
 ---
 
@@ -279,21 +262,13 @@ It covers:
 
 Its purpose is to apply problem-solving concepts through actual C++ programs.
 
-### What I Actually Did
-
-The available source does not specify individual personal projects or implementations.
-
-### What You Can Find in This Repository
-
-Exact repository contents are not specified.
-
 ---
 
 ## Course 04 — Algorithms & Problem Solving – Level 1 (Clean Code)
 
 ### What the Course Teaches
 
-This course revisits earlier problem-solving work with an emphasis on improving code quality.
+This course revisits problem-solving work with an emphasis on better code organization and quality.
 
 It focuses on:
 
@@ -306,14 +281,6 @@ It focuses on:
 * Controlling complexity
 
 The goal is to move from code that simply works toward better-organized code.
-
-### What I Actually Did
-
-The source describes the course work but does not provide enough evidence to identify specific personal implementations.
-
-### What You Can Find in This Repository
-
-Exact files and paths are not specified.
 
 ---
 
@@ -330,14 +297,6 @@ It focuses on:
 * Repeated problem-solving practice
 * Learning through failed attempts
 * Connecting problems to projects
-
-### What I Actually Did
-
-The available information does not provide enough specific evidence to describe individual personal solutions.
-
-### What You Can Find in This Repository
-
-Exact repository contents are not specified.
 
 ---
 
@@ -362,14 +321,6 @@ It covers:
 
 The course emphasizes understanding why code works, including memory-level awareness.
 
-### What I Actually Did
-
-The provided source does not identify specific personal work for this course.
-
-### What You Can Find in This Repository
-
-Exact files and paths are not specified.
-
 ---
 
 ## Course 07 — Algorithms & Problem Solving – Level 3
@@ -385,14 +336,6 @@ It focuses on:
 * Problem decomposition
 * Working under pressure
 * Transitioning from individual problems to projects
-
-### What I Actually Did
-
-Specific personal solutions and projects are not identified in the supplied course information.
-
-### What You Can Find in This Repository
-
-Exact repository contents are not specified.
 
 ---
 
@@ -410,21 +353,13 @@ It includes:
 * Working with larger codebases
 * Building endurance with increasingly complex tasks
 
-### What I Actually Did
-
-The available source does not provide enough specific evidence to describe individual personal implementations.
-
-### What You Can Find in This Repository
-
-Exact files and paths are not specified.
-
 ---
 
 ## Course 09 — Foundations – Level 2
 
 ### What the Course Teaches
 
-This course expands beyond programming itself into the environment in which software operates.
+This course expands beyond programming into the environment in which software operates.
 
 It covers:
 
@@ -440,14 +375,6 @@ It covers:
 * Security basics
 
 The intended outcome is understanding the environment where software runs.
-
-### What I Actually Did
-
-The supplied source does not identify specific personal implementations or exercises.
-
-### What You Can Find in This Repository
-
-Exact repository contents are not specified.
 
 ---
 
@@ -469,14 +396,6 @@ It covers:
 
 The goal is to establish correct object-oriented mental models.
 
-### What I Actually Did
-
-The source does not provide enough detail to identify specific personal work.
-
-### What You Can Find in This Repository
-
-Exact files and paths are not specified.
-
 ---
 
 ## Course 11 — OOP as it Should Be – Applications
@@ -497,14 +416,6 @@ Its projects and topics include:
 * Security rules
 
 The intended outcome is applying OOP concepts in practical software engineering scenarios.
-
-### What I Actually Did
-
-The available source identifies the practical nature of the course but does not provide a complete inventory of my personal work.
-
-### What You Can Find in This Repository
-
-The repository may contain course-related projects and supporting materials where they have been documented, but exact paths should be verified from the repository itself.
 
 ---
 
@@ -530,25 +441,15 @@ Topics include:
 
 The course focuses on understanding how data is organized and how structure selection affects performance.
 
-### What I Actually Did
-
-The supplied learning-path information does not provide enough detail to list specific personal implementations.
-
-### What You Can Find in This Repository
-
-Exact repository paths are not specified.
-
 ---
 
 ## Course 13 — Algorithms & Problem Solving – Level 5
 
-**Status: Currently Studying**
-
 ### What the Course Teaches
 
-Course 13 acts as a consolidation stage for the first part of the learning path.
+This course focuses on advanced problem-solving through larger projects and extensions.
 
-It focuses on:
+It includes:
 
 * Heavy projects
 * Extensions
@@ -556,27 +457,15 @@ It focuses on:
 * Maintenance-style work
 * Extending existing systems
 
-The intended outcome is the completion and consolidation of the first part of the roadmap covering C++ and foundational software engineering concepts.
-
-### What I Actually Did
-
-I am currently studying this course.
-
-Work should only be described as completed when it has actually been completed and documented.
-
-### What You Can Find in This Repository
-
-Course 13 materials should represent the work completed so far while studying this course.
+The intended outcome is to apply problem-solving skills while expanding and maintaining existing systems.
 
 ---
 
 ## Course 14 — C# – Level 1
 
-**Status: Upcoming**
-
 ### What the Course Teaches
 
-This course introduces C# as the next programming language in the roadmap.
+This course introduces C# as the next programming language in the learning path.
 
 It covers:
 
@@ -591,17 +480,11 @@ It covers:
 * Controls
 * LINQ fundamentals
 
-The intended outcome is establishing professional C# foundations.
-
-### What I Actually Did
-
-This course is upcoming and therefore should not be presented as completed work.
+The intended outcome is establishing C# foundations.
 
 ---
 
 ## Course 15 — Database – Level 1 (SQL: Concepts & Practice)
-
-**Status: Upcoming**
 
 ### What the Course Teaches
 
@@ -623,19 +506,13 @@ Topics include:
 * Views
 * Indexes
 
-### What I Actually Did
-
-This course is upcoming. No completed personal work is claimed.
-
 ---
 
 ## Course 16 — OOP as It Should Be in C#
 
-**Status: Upcoming**
-
 ### What the Course Teaches
 
-This course applies language-independent OOP concepts specifically within C#.
+This course applies object-oriented programming concepts within C#.
 
 It covers:
 
@@ -648,15 +525,9 @@ It covers:
 
 The intended outcome is clean and extensible C# object-oriented code.
 
-### What I Actually Did
-
-This course is upcoming. No completed personal work is claimed.
-
 ---
 
 ## Course 17 — Database – SQL (Projects & Practice)
-
-**Status: Upcoming**
 
 ### What the Course Teaches
 
@@ -672,19 +543,13 @@ It includes:
 * Real-world scenarios such as clinics and libraries
 * 50+ advanced queries
 
-### What I Actually Did
-
-This course is upcoming. No completed personal work is claimed.
-
 ---
 
 ## Course 18 — C# & Database Connectivity (ADO.NET Foundations)
 
-**Status: Upcoming**
-
 ### What the Course Teaches
 
-This course introduces the application layer used to communicate directly with databases before moving to ORMs.
+This course introduces application-level communication with databases.
 
 It covers:
 
@@ -696,19 +561,13 @@ It covers:
 * CRUD operations
 * 3-Tier Architecture
 
-### What I Actually Did
-
-This course is upcoming. No completed personal work is claimed.
-
 ---
 
 ## Course 19 — Full Real Project – DVLD (Driving License System)
 
-**Status: Upcoming**
-
 ### What the Course Teaches
 
-This is a large end-to-end project designed around a realistic multi-module system.
+This course is a large end-to-end project based on a realistic multi-module system.
 
 It focuses on:
 
@@ -718,17 +577,11 @@ It focuses on:
 * Data Access Layer
 * Real workflows
 
-The stated purpose is to apply concepts from previous courses within one large system.
-
-### What I Actually Did
-
-This course is upcoming. The project must not be presented as completed work.
+The purpose is to apply concepts from previous courses within one large system.
 
 ---
 
 ## Course 20 — C# Programming – Level 2
-
-**Status: Upcoming**
 
 ### What the Course Teaches
 
@@ -747,15 +600,9 @@ It covers:
 * Configuration
 * Dependency Injection / IoC
 
-### What I Actually Did
-
-This course is upcoming. No completed personal work is claimed.
-
 ---
 
 ## Course 21 — Database – Level 2 (Concepts & T-SQL)
-
-**Status: Upcoming**
 
 ### What the Course Teaches
 
@@ -776,15 +623,9 @@ Topics include:
 * CTEs
 * Error handling
 
-### What I Actually Did
-
-This course is upcoming. No completed personal work is claimed.
-
 ---
 
 ## Course 22 — Data Structures – Level 2 in C#
-
-**Status: Upcoming**
 
 ### What the Course Teaches
 
@@ -803,15 +644,9 @@ It covers:
 * IComparable
 * LINQ with tuples
 
-### What I Actually Did
-
-This course is upcoming. No completed personal work is claimed.
-
 ---
 
 ## Course 23 — Algorithms – Level 6
-
-**Status: Upcoming**
 
 ### What the Course Teaches
 
@@ -831,21 +666,15 @@ It includes:
 * Heaps
 * Big O complexity analysis
 
-The stated goal is developing advanced problem-solving capability at a system-design level.
-
-### What I Actually Did
-
-This course is upcoming. No completed personal work is claimed.
+The goal is to develop advanced problem-solving capability at a system-design level.
 
 ---
 
 ## Course 24 — Windows Services
 
-**Status: Upcoming**
-
 ### What the Course Teaches
 
-The final course in this 24-course learning path focuses on continuously running background systems.
+The final course focuses on continuously running background systems.
 
 Topics include:
 
@@ -859,10 +688,6 @@ Topics include:
 * Dependencies
 
 The intended outcome is understanding how to build production systems that operate continuously in the background.
-
-### What I Actually Did
-
-This course is upcoming. No completed personal work is claimed.
 
 ---
 
