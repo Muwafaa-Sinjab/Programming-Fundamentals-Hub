@@ -30,12 +30,12 @@ Course content should not be interpreted as proof that I personally implemented 
 
 | Progress    | Current Course                             | Status                 |
 | ----------- | ------------------------------------------ | ---------------------- |
-| **14 / 24** | **C# – Level 1**                           | **Currently Studying** |
+| **14 / 24** | **C# – Level 1** / **Database – Level 1**  | **Currently Studying** |
 
 ### Status
 
-* **Completed:** Courses 01–12
-* **Currently Studying:** Course 13
+* **Completed:** Courses 01–13
+* **Currently Studying:** Course 14-15
 * **Upcoming:** Courses 14–24
 
 This section is intentionally kept simple so that the current position can be updated as the learning journey progresses.
@@ -62,7 +62,7 @@ When moving to the next course, the main update should be changing the progress 
 | 12 | Data Structures – Level 1                           | Completed              | Data structures and complexity                    |
 | 13 | Algorithms & Problem Solving – Level 5              | Completed              | Consolidation, projects, and system extensions    |
 | 14 | C# – Level 1                                        | **Currently Studying** | C# and .NET foundations                           |
-| 15 | Database – Level 1 (SQL: Concepts & Practice)       | Upcoming               | Database design and SQL                           |
+| 15 | Database – Level 1 (SQL: Concepts & Practice)       | **Currently Studying** | Database design and SQL                           |
 | 16 | OOP as It Should Be in C#                           | Upcoming               | OOP applied to C#                                 |
 | 17 | Database – SQL (Projects & Practice)                | Upcoming               | Advanced SQL practice                             |
 | 18 | C# & Database Connectivity (ADO.NET Foundations)    | Upcoming               | Application-database connectivity                 |
