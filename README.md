@@ -22,15 +22,14 @@ Course content should not be interpreted as proof that I personally implemented 
 * [Learning Outcomes So Far](#learning-outcomes-so-far)
 * [Repository Contents](#repository-contents)
 * [Certificates](#certificates)
-* [Next Steps](#next-steps)
 
 ---
 
 ## Current Progress
 
-| Progress    | Current Course                             | Status                 |
-| ----------- | ------------------------------------------ | ---------------------- |
-| **14 / 24** | **C# – Level 1** / **Database – Level 1**  | **Currently Studying** |
+| Progress     | Current Course                             | Status                 |
+| ------------ | ------------------------------------------ | ---------------------- |
+| **14-15/24** | **C# – Level 1** / **Database – Level 1**  | **Currently Studying** |
 
 ### Status
 
@@ -818,19 +817,3 @@ Course descriptions explain what was taught; repository contents provide evidenc
 Certificates are included only where they have actually been obtained and added to the repository.
 
 A certificate represents completion or participation in a course where applicable. It is **not** treated as proof of mastery or professional expertise.
-
----
-
-# Next Steps
-
-The immediate objective is to complete:
-
-**Course 13 — Algorithms & Problem Solving – Level 5**
-
-After completing Course 13, the next stage of the learning path begins with:
-
-**Course 14 — C# – Level 1**
-
-The long-term path continues through C#, databases, backend development, advanced data structures and algorithms, and Windows Services.
-
-This README will be updated as the learning journey progresses, while completed course documentation remains part of the historical record of the repository.
